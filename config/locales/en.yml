@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  base_title: "E-learning"
   views:
     layouts:
       home: "Home"
@@ -37,3 +38,11 @@ en:
       unlearned: "Unlearned"
       all: "All"
       filter: "Filter"
+    signup:
+      signup: "Signup"
+      success: "Signup successfully"
+      name: "Name"
+      email: "Email"
+      password: "Password"
+      password_confirmation: "Password_confirmation"
+      submit: "Creat my account"
