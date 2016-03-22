@@ -21,3 +21,9 @@
 
 en:
   hello: "Hello world"
+  view:
+    layouts:
+      home: "Home"
+      login: "Login"
+      title: "Framgia E-learning system"
+      logo: "E-learning"
