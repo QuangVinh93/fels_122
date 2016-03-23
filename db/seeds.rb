@@ -15,3 +15,14 @@ Category.create! name: "Advance 500"
 10.times do |n|
   WordAnswer.create! content: Faker::Lorem.word, correct: true, word_id: n+1
 end
+
+User.create! name: "ToanLH",
+  email: "toan@gmail.com",
+  password: "1",
+  password_confirmation: "1",
+  admin: true
+User.create! name: "ToanLH2",
+  email: "toan2@gmail.com",
+  password: "1",
+  password_confirmation: "1",
+  admin: false
