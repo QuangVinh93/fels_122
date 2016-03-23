@@ -26,5 +26,14 @@ en:
       login: "Login"
       title: "Framgia E-learning system"
       logo: "E-learning"
+      words: "Words"
+      category: "Category"
     static_pages:
       welcome: "Welcome to Framgia E-learning system"
+    words:
+      wordlist: "Word list"
+      select_category: "Select a category"
+      learned: "Learned"
+      unlearned: "Unlearned"
+      all: "All"
+      filter: "Filter"
