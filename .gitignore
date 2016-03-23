@@ -27,3 +27,6 @@ config/environments/*.local.yml
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore Byebug command history file.
+.byebug_history
