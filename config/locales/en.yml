@@ -61,3 +61,6 @@ en:
       save_change: "Save change"
       success: "Profile updated"
       error: "Error update"
+    categories:
+      title: "Categories"
+      start: "Start"

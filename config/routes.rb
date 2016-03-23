@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :words, only: :index
   resources :users, except: [:index, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
+  resources :categories, only: :index
 end

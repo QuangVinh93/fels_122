@@ -18,11 +18,7 @@ rerun.txt
 pickle-email-*.html
 .project
 /config/database.yml
-/public/uploads
-config/settings.local.yml
-config/settings/*.local.yml
-config/environments/*.local.yml
-.DS_Store
+/public/uploads.DS_Store
 /.idea
 
 # Ignore application configuration
@@ -30,3 +26,7 @@ config/environments/*.local.yml
 
 # Ignore Byebug command history file.
 .byebug_history
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
