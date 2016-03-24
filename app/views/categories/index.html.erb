@@ -1,0 +1,10 @@
+<%= provide :title, t("views/categories/title") %>
+<% @categories.each_with_index do |category, index| %>
+  <% if index.odd? %>
+    <%= render "right" %>
+    <%= render partial: "left", locals: {category: category} %>
+  <% else %>
+    <%= render partial: "left", locals: {category: category} %>
+    <%= render "right" %>
+  <% end %>
+<% end %>
