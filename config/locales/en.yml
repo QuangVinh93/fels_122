@@ -49,6 +49,7 @@ en:
       submit: "Creat my account"
     login:
       login: "Log in"
+      notice: "Please log in."
       email: "Email"
       password: "Password"
       remember: "Remember me on this computer"
@@ -64,3 +65,12 @@ en:
     categories:
       title: "Categories"
       start: "Start"
+    all_users: "All users"
+    follow:
+      follow: "Follow"
+      unfollow: "Unfollow"
+      following: "following"
+      follower: "followers"
+    user:
+      confirm: "You sure?"
+      delete: "delete"
