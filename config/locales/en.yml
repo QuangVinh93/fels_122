@@ -56,3 +56,8 @@ en:
     session:
       error: "Invalid email/password"
       success: "Log in successfully"
+    update:
+      update: "Update"
+      save_change: "Save change"
+      success: "Profile updated"
+      error: "Error update"
