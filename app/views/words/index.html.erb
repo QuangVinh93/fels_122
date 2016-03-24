@@ -6,20 +6,25 @@
       <ul class="list-inline">
         <li>
           <%= select_tag :category_id,
-            options_from_collection_for_select(@categories, :id, :name),
-            prompt: t("views.words.select_category"),
+            options_from_collection_for_select(@categories, :id, :name,
+            params[:category_id]),
+            include_blank: t("views.words.select_category"),
             class: "form-control" %>
         </li>
         <li>
-          <%= f.radio_button "condition", :learned %>
+          <%= radio_button_tag :condition, :learned,
+            (true if params[:condition] == "learned") %>
           <%= t "views.words.learned" %>
         </li>
         <li>
-          <%= f.radio_button "condition", :unlearned %>
+          <%= radio_button_tag :condition, :unlearned,
+            (true if params[:condition] == "unlearned") %>
           <%= t "views.words.unlearned" %>
         </li>
         <li>
-          <%= f.radio_button "condition", :all %>
+          <%= radio_button_tag :condition, :all,
+          (true if(params[:condition] == "all" ||
+            params[:condition].blank?)) %>
           <%= t "views.words.all" %>
         </li>
       </ul>
@@ -37,4 +42,5 @@
       <p><%= correct_answer word %></p>
     <% end %>
   </div>
+  <%= will_paginate %>
 </div>
