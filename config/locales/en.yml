@@ -40,9 +40,19 @@ en:
       filter: "Filter"
     signup:
       signup: "Signup"
+      signup_now: "Sign up now!"
       success: "Signup successfully"
       name: "Name"
       email: "Email"
       password: "Password"
       password_confirmation: "Password_confirmation"
       submit: "Creat my account"
+    login:
+      login: "Log in"
+      email: "Email"
+      password: "Password"
+      remember: "Remember me on this computer"
+      new_user: "New user?"
+    session:
+      error: "Invalid email/password"
+      success: "Log in successfully"
