@@ -1,3 +1,7 @@
 size:
   width: "100%"
   height: "100%"
+avatar:
+  size: 50
+  mini_size: 10
+relationships: ["followers", "following"]  
