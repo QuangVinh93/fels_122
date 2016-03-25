@@ -1,0 +1,16 @@
+<% provide :title, t("admin.category.edit") %>
+<h1><%= t "admin.category.edit" %></h1>
+
+<div class = "row">
+  <div class= "col-md-6 col-md-offset-3">
+    <%= form_for [:admin, @category] do |f| %>
+      <%= f.label :name, t("admin.category.name") %>
+      <%= f.text_field :name, class: "form-control" %>
+
+      <%= f.label :description, t("admin.category.description") %>
+      <%= f.text_area :description, class: "form-control" %>
+
+      <%= f.submit t("admin.category.update"), class: "btn btn-default col-md-3" %>
+    <% end %>
+  </div>
+</div>
