@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     root "categories#index"
     resources :users
     resources :categories, except: :show
+    resources :words, only: [:new, :create]
   end
-  resources :lessons, only: [:update, :create, :show]
+  resources :lessons, except: [:index, :destroy, :edit]
 end

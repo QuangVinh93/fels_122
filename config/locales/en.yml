@@ -54,7 +54,19 @@ en:
       create: "Create category"
       update: "Update category"
       category: "Cannot category"
+    words:
+      new: "New word"
+      content: "Word content"
+      answer_content: "Word answer content"
+      category: "Category"
+      add: "Add word"
+      correct: "Correct answer"
+      remove: "Remove"
+      add_answer: "Add answer"
   base_title: "E-learning"
+  models:
+    word:
+      many_answer: "This word have more than one answer!"
   views:
     no_activity: "No activity"
     layouts:

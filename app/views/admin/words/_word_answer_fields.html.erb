@@ -1,0 +1,9 @@
+<fieldset>
+  <p>
+    <%= f.label :content, t("admin.words.answer_content") %>
+    <%= f.check_box :correct, class: "check-change" %>
+    <%= t("admin.words.correct") %>
+    <%= link_to t("admin.words.remove"), "#", class: "remove_fields" %>
+  </p>
+  <%= f.text_field :content, class: "form-control" %><br>
+</fieldset>
