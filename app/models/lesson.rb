@@ -4,7 +4,7 @@ class Lesson < ActiveRecord::Base
   after_create :save_activity
 
   belongs_to :user
-  belongs_to :category, dependent: :destroy
+  belongs_to :category
 
   has_many :lesson_words
   has_many :activities
