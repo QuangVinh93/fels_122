@@ -31,6 +31,16 @@ User.create! name: "ToanLH2",
   password_confirmation: "1",
   admin: false
 
+100.times do |n|
+  name = Faker::Name.name
+  email = "FELS#{n+1}@gmail.com"
+  password = "1"
+  User.create!(name: name,
+    email: email,
+    password: password,
+    password_confirmation: password)
+end
+
 Lesson.create! user_id: 1, category_id: 1, result: "18/30"
 
 3.times do |n|

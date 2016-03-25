@@ -20,6 +20,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  admin:
+    flash:
+      deleted_success: "Deleted success"
+      deleted_fail: "Deleted fail"
+      user_cannot: "Cannot user"
+      permission: "Not admin"
   base_title: "E-learning"
   views:
     layouts:
@@ -69,8 +75,9 @@ en:
     follow:
       follow: "Follow"
       unfollow: "Unfollow"
-      following: "following"
-      follower: "followers"
+      following: "Following"
+      followers: "Followers"
     user:
       confirm: "You sure?"
       delete: "delete"
+    view_profile: "view my profile"
