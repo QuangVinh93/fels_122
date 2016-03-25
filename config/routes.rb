@@ -7,10 +7,11 @@ Rails.application.routes.draw do
       constraints: {relationship: /(following|followers)/}
   end
   resources :sessions, only: [:new, :create, :destroy]
-  resources :categories, only: :index
+  resources :categories, only: [:index, :new, :create]
   resources :relationships, only: [:index, :create, :destroy]
   namespace :admin do
-    root "users#index"
+    root "categories#index"
     resources :users
+    resources :categories, only: [:index, :new, :create]
   end
 end
