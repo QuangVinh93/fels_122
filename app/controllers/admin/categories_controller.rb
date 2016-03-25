@@ -1,6 +1,7 @@
 class Admin::CategoriesController <ApplicationController
   before_action :logged_in_user
   before_action :verify_admin
+  before_action :find_category, only: [:edit, :update]
 
   def index
     @categories = Category.all.paginate page: params[:page]
@@ -21,8 +22,25 @@ class Admin::CategoriesController <ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @category.update_attributes category_params
+      flash[:success] = t "admin.flash.edited_success"
+      redirect_to admin_categories_path
+    else
+      flash[:danger] = t "admin.flash.edited_fail"
+      render :edit
+    end
+  end
+
   private
   def category_params
     params.require(:category).permit :name, :description
+  end
+
+  def find_category
+    @category = Category.find params[:id]
   end
 end

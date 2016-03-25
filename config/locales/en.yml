@@ -21,6 +21,7 @@
 
 en:
   admin:
+    edit: "Edit"
     flash:
       deleted_success: "Deleted success"
       deleted_fail: "Deleted fail"
@@ -28,11 +29,14 @@ en:
       permission: "Not admin"
       created_success: "Created successfully"
       created_fail: "Create fail"
+      edited_success: "Edited successfully"
+      edited_fail: "Edit fail"
     category:
       new: "New category"
       name: "Name"
       description: "Description"
       create: "Create category"
+      update: "Update category"
   base_title: "E-learning"
   views:
     layouts:
