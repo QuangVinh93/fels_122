@@ -17,7 +17,13 @@ Category.create! name: "Basic 500"
 Category.create! name: "Advance 500"
 
 7.times do |n|
-  WordAnswer.create! content: Faker::Lorem.word, correct: true, word_id: n+1
+  WordAnswer.create! content: "True answer", correct: true, word_id: n+1
+end
+
+3.times do |t|
+  7.times do |n|
+    WordAnswer.create! content: Faker::Lorem.word, correct: false, word_id: n+1
+  end
 end
 
 User.create! name: "ToanLH",
