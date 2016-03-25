@@ -22,6 +22,8 @@
 en:
   admin:
     edit: "Edit"
+    delete: "Delete"
+    category_delete: "You sure delete category?"
     flash:
       deleted_success: "Deleted success"
       deleted_fail: "Deleted fail"
@@ -37,6 +39,7 @@ en:
       description: "Description"
       create: "Create category"
       update: "Update category"
+      category: "Cannot category"
   base_title: "E-learning"
   views:
     layouts:
