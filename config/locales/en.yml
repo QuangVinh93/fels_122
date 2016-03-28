@@ -95,3 +95,10 @@ en:
       confirm: "You sure?"
       delete: "delete"
     view_profile: "view my profile"
+    lessons:
+      questions: "Questions"
+      lessons: "Lessons"
+      result: "Result"
+      true_answer: "[o]"
+      wrong_answer: "[x]"
+      submit: "Submit"

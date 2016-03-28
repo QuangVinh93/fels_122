@@ -1,5 +1,4 @@
 <div class="col-md-6 category">
-
   <ul class="no-decoration">
     <li>
       <ul class="list-inline">
@@ -17,9 +16,9 @@
       </div>
     </li>
     <li>
-      <div class="btn btn-default col-md-3 col-md-offset-9">
-        <%= link_to t "views.categories.start" %>
-      </div>
+      <%= link_to t("views.categories.start"),
+        lessons_path(category_id: category.id), method: :post,
+        class: "btn btn-default col-md-3 col-md-offset-9" %>
     </li>
   </ul>
 </div>

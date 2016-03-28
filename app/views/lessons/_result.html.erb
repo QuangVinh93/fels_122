@@ -1,0 +1,46 @@
+<div class="col-md-6">
+  <h3>
+    <strong><%= @category.name %></strong>
+    <strong><%= t "views.lessons.result" %></strong>
+  </h3>
+</div>
+<div class="col-md-6">
+  <h3>
+    <%= @lesson.result.to_s + "/" + Settings.QUESTION_PER_LESSON.to_s %>
+  </h3>
+</div>
+<div class="col-md-12">
+  <div class="col-md-2 col-md-2">
+    <ul class="list-unstyled">
+      <% @lesson.lesson_words.each do |lesson_word| %>
+        <% if lesson_word.word_answer.nil? %>
+          <li><%= t "views.lessons.wrong_answer" %></li>
+        <% else %>
+          <li>
+            <%= lesson_word.word_answer.correct ?
+              t("views.lessons.true_answer") :
+              t("views.lessons.wrong_answer") %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <ul class="list-unstyled">
+      <% @lesson.lesson_words.each do |lesson_word| %>
+        <% if lesson_word.word_answer.nil? %>
+          <li><br></li>
+        <% else %>
+          <li><%= lesson_word.word_answer.content %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <ul class="list-unstyled">
+      <% @lesson.lesson_words.each do |lesson_word| %>
+        <li><%= lesson_word.word.content %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

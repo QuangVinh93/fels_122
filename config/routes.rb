@@ -14,4 +14,5 @@ Rails.application.routes.draw do
     resources :users
     resources :categories, except: :show
   end
+  resources :lessons, only: [:update, :create, :show]
 end
