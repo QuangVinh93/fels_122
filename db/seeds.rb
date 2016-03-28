@@ -47,6 +47,17 @@ User.create! name: "ToanLH2",
     password_confirmation: password)
 end
 
+users = User.all
+user  = users.first
+following = users[1..50]
+followers = users[1..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
+
+20.times do |n|
+  Activity.create! user_id: 2, action: " Learned #{n+20} words"
+end
+
 Lesson.create! user_id: 1, category_id: 1, result: "18/30"
 
 3.times do |n|

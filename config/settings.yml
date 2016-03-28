@@ -3,7 +3,14 @@ QUESTION_PER_LESSON: 5
 size:
   width: "100%"
   height: "100%"
+type:
+  image: "image"
 avatar:
   size: 50
   mini_size: 10
-relationships: ["followers", "following"]  
+  size_img_tag: "20"
+  default: "avatar_default.jpg"
+relationships: ["followers", "following"]
+per_page: 5
+time:
+  format: "%d %b. %Y"

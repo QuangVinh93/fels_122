@@ -1,0 +1,11 @@
+<li class="list-group-item">
+  <h4>
+    <% if @user.avatar.blank? %>
+      <%= image_tag Settings.avatar.default, size: Settings.avatar.size_img_tag %>
+    <% else %>
+      <%= image_tag @user.avatar, size: Settings.avatar.size_img_tag %>
+    <% end %>
+    <span class="text-info"><%= @user.name %></span>
+    <%= activity.action %> ( <%= activity.created_at.to_date %> )
+  </h4>
+</li>
