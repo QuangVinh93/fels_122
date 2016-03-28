@@ -7,7 +7,7 @@ class Word < ActiveRecord::Base
   QUERY_WORD_ALL = "id in (select id from words
     where words.category_id in (?))"
 
-  belongs_to :category
+  belongs_to :category, dependent: :destroy
 
   has_many :lesson_words
   has_many :word_answers
