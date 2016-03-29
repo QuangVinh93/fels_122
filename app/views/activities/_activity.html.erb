@@ -6,6 +6,7 @@
       <%= image_tag @user.avatar, size: Settings.avatar.size_img_tag %>
     <% end %>
     <span class="text-info"><%= @user.name %></span>
-    <%= activity.action %> ( <%= activity.created_at.to_date %> )
+    <%= activity.action + " #{Settings.QUESTION_PER_LESSON} words - #{activity.
+      lesson.category.name}" %> ( <%= activity.created_at.to_date %> )
   </h4>
 </li>
