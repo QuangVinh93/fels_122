@@ -14,3 +14,5 @@ relationships: ["followers", "following"]
 per_page: 5
 time:
   format: "%d %b. %Y"
+activities:
+  learned: "Learned"
