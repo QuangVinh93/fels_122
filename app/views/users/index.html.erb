@@ -1,8 +1,23 @@
 <% provide :title, t("views.all_users") %>
 <h1><%= t "views.all_users" %></h1>
 
-<%= will_paginate %>
-<ul class = "users">
-  <%= render @users %>
-</ul>
-<%= will_paginate %>
+<div class="row">
+  <div class="col-md-12">
+    <% if @users.present? %>
+      <ul class="list-group">
+        <li class="list-group-item active"><%= t "views.all_users" %>
+        </li>
+        <% if @users.any? %>
+          <%= render @users %>
+        <% else %>
+          <li class="list-group-item">
+            <h4>
+              <span class="text-info"><%= t "views.no_user" %></span>
+            </h4>
+          </li>
+        <% end %>
+      </ul>
+      <%= will_paginate @users %>
+    <% end %>
+  </div>
+</div>

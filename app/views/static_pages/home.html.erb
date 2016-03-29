@@ -4,10 +4,12 @@
   <div class="row">
     <aside class="col-md-3">
       <section class="user_info">
-        <% unless current_user.avatar.blank? %>
-          <%= link_to image_tag(current_user.avatar, id: Settings.type.image), current_user %>
+        <% if current_user.avatar.blank? %>
+          <%= link_to image_tag(Settings.avatar.default, id: "image"),
+            current_user %>
         <% else %>
-          <%= link_to image_tag(Settings.avatar.default, id: Settings.type.image), current_user %>
+          <%= link_to image_tag(current_user.avatar_url(:thumb)), current_user
+            %>
         <% end %>
       </section>
       <section class="name">
@@ -22,8 +24,10 @@
     <div class="col-md-9">
       <div class="col-md-6 col-md-offset-4">
         <p>
-          <%= link_to t("word.word_all"), words_path, class: "btn btn-success btn-lg" %>
-          <%= link_to t("categories.lessons"), categories_path, class: "btn btn-warning btn-lg" %>
+          <%= link_to t("word.word_all"), words_path,
+            class: "btn btn-success btn-lg"%>
+          <%= link_to t("categories.lessons"), categories_path,
+            class: "btn btn-warning btn-lg" %>
         </p>
       </div>
       <div class="row">

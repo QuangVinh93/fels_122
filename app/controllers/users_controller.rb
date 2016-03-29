@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       flash[:success] = t "views.signup.success"
-      redirect_to @user
+      redirect_to new_session_path
     else
       render :new
     end
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit :name, :email, :password, :password_confirmation
+    params.require(:user).permit :name, :email, :avatar, :password, :password_confirmation
   end
 
   def find_user
