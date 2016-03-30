@@ -54,7 +54,28 @@ en:
       create: "Create category"
       update: "Update category"
       category: "Cannot category"
+    words:
+      new: "New word"
+      content: "Word content"
+      answer_content: "Word answer content"
+      category: "Category"
+      add: "Add word"
+      correct: "Correct answer"
+      remove: "Remove"
+      add_answer: "Add answer"
+      edit: "Edit"
+      save_changes: "Save changes"
+      delete: "Delete"
+      confirm: "Are you sure?"
+      updated: "Word updated!"
+      deleted: "Word deleted!"
+      update_error: "Update error!"
+      created: "Word created!
+      create_error: "Create error"
   base_title: "E-learning"
+  models:
+    word:
+      many_answer: "This word have more than one correct answer!"
   views:
     no_activity: "No activity"
     no_user: "No user"

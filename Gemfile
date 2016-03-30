@@ -17,6 +17,7 @@ gem "turbolinks", "2.3.0"
 gem "jbuilder", "2.2.3"
 gem "sdoc", "0.4.0", group: :doc
 gem "config"
+gem "jquery-turbolinks"
 
 group :development,:test do
   gem "pry"

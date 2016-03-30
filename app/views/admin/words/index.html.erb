@@ -1,0 +1,23 @@
+<div class="col-md-6 col-md-offset-3">
+  <div class="col-md-12">
+    <h3><%= link_to t("admin.words.new"), new_admin_word_path %></h3>
+  </div>
+  <div class="col-md-4">
+    <ul class="list-unstyled">
+      <% @words.each do |word| %>
+        <li><%= word.content %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <ul class="list-unstyled">
+      <% @words.each do |word| %>
+        <li>
+          <%= link_to t("admin.words.edit"), edit_admin_word_path(word) %>
+          <%= link_to t("admin.words.delete"), admin_word_path(word),
+            method: :delete, data: {confirm: t("admin.words.confirm")} %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
