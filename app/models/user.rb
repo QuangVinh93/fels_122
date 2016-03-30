@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :passive_relationships, source: :follower
 
   has_secure_password
+  mount_uploader :avatar, AvatarUploader
 
   class << self
     def digest string

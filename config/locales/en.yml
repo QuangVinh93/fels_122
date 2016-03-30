@@ -57,6 +57,7 @@ en:
   base_title: "E-learning"
   views:
     no_activity: "No activity"
+    no_user: "No user"
     layouts:
       home: "Home"
       login: "Login"

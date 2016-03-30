@@ -4,6 +4,9 @@
 <div class = "row">
   <div class= "col-md-6 col-md-offset-3">
     <%= form_for @user do |f| %>
+      <%= f.label :avatar %>
+      <%= f.file_field :avatar %>
+
       <%= f.label :name, t("views.signup.name") %>
       <%= f.text_field :name, class: "form-control" %>
 
@@ -13,11 +16,12 @@
       <%= f.label :password, t("views.signup.password") %>
       <%= f.password_field :password, class: "form-control" %>
 
-      <%= f.label :password_confirmation, t("views.signup.password_confirmation") %>
+      <%= f.label :password_confirmation,
+        t("views.signup.password_confirmation") %>
       <%= f.password_field :password_confirmation, class: "form-control" %>
 
-      <%= f.submit t("views.signup.submit"), class: "btn btn-default col-md-3" %>
+      <%= f.submit t("views.signup.submit"),
+        class: "btn btn-default col-md-3" %>
     <% end %>
-
   </div>
 </div>

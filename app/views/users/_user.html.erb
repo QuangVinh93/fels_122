@@ -1,4 +1,10 @@
 <li>
-  <%= gravatar_for @user %>
-  <%= link_to user.name, user %>
+  <h4>
+    <% if user.avatar.blank? %>
+      <%= link_to image_tag(Settings.avatar.default, id: "image"), user %>
+    <% else %>
+      <%= link_to image_tag(user.avatar_url(:thumb)), user %>
+    <% end %>
+    <%= link_to user.name, user %>
+  </h4>
 </li>

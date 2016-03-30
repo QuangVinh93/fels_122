@@ -3,10 +3,10 @@
 <div class="row">
     <aside class="col-md-3">
       <section class="user_info">
-        <% unless @user.avatar.blank? %>
-          <%= link_to image_tag(@user.avatar, id: "image"), current_user %>
+        <% if @user.avatar.blank? %>
+          <%= link_to image_tag(Settings.avatar.default, id: "image"), @user %>
         <% else %>
-          <%= link_to image_tag(Settings.avatar.default, id: "image"), current_user %>
+          <%= link_to image_tag(@user.avatar_url(:thumb)), @user %>
         <% end %>
       </section>
       <section class="name">
@@ -21,25 +21,40 @@
     <div class="col-md-9">
       <div class="col-md-6 col-md-offset-4">
         <p>
-          <%= link_to t("word.word_all"), words_path, class: "btn btn-success btn-lg" %>
-          <%= link_to t("categories.lessons"), categories_path, class: "btn btn-warning btn-lg" %>
+          <%= link_to t("word.word_all"), words_path,
+            class: "btn btn-success btn-lg" %>
+          <%= link_to t("categories.lessons"), categories_path,
+            class: "btn btn-warning btn-lg" %>
         </p>
       </div>
       <div class="row">
         <div class="col-md-12">
-          <ul class="list-group">
-            <li class="list-group-item active"><%= t "user.activities" %></li>
-            <% if @activities.any? %>
-              <%= render @activities %>
-            <% else %>
+          <% if @activities.present? %>
+            <ul class="list-group">
+              <li class="list-group-item active"><%= t "user.activities" %>
+              </li>
+              <% if @activities.any? %>
+                <%= render @activities %>
+              <% else %>
+                <li class="list-group-item">
+                  <h4>
+                    <span class="text-info"><%= t "views.no_activity" %></span>
+                  </h4>
+                </li>
+              <% end %>
+            </ul>
+          <% else %>
+            <ul class="list-group">
+              <li class="list-group-item active"><%= t "user.activities" %>
+              </li>
               <li class="list-group-item">
                 <h4>
                   <span class="text-info"><%= t "views.no_activity" %></span>
                 </h4>
               </li>
-            <% end %>
-          </ul>
-          <%= will_paginate @activities %>
+            </ul>
+            <%= will_paginate @activities %>
+          <% end %>
         </div>
       </div>
     </div>
