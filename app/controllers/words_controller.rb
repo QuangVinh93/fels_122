@@ -6,6 +6,7 @@ class WordsController < ApplicationController
     else
       params[:condition]
     end
+
     @words = Word.send("by_#{condition}", current_user.id, category_ids).
       paginate page: params[:page]
   end
