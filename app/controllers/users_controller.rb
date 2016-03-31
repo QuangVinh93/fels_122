@@ -2,7 +2,22 @@ class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update]
 
   def index
-    @users = User.paginate page: params[:page]
+    name = params[:s_name].present? ? params[:s_name] : ""
+
+    condition = if params[:s_admin].present? && params[:s_user].present?
+      "all"
+    elsif params[:s_admin].present?
+      params[:s_admin]
+    elsif params[:s_user].present?
+      params[:s_user]
+    else
+      nil
+    end
+
+    if condition
+      @users = User.send("search_#{condition}", name).paginate page: params[:page],
+        per_page: Settings.users.per_page
+    end
   end
 
   def show

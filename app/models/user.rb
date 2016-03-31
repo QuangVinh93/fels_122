@@ -1,6 +1,13 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token
 
+  QUERY_SEARCH_ADMIN = "id in (select users.id from users
+    where users.name LIKE ? AND users.admin = 't')"
+  QUERY_SEARCH_USER = "id in (select users.id from users
+    where users.name LIKE ? AND (users.admin = 'f' OR users.admin is null))"
+  QUERY_SEARCH_ALL = "id in (select users.id from users
+    where users.name LIKE ?)"
+
   has_many :activities
   has_many :lessons
   has_many :active_relationships, class_name: "Relationship",
@@ -13,6 +20,13 @@ class User < ActiveRecord::Base
 
   has_secure_password
   mount_uploader :avatar, AvatarUploader
+
+  scope :search_admin, -> (search_name){where QUERY_SEARCH_ADMIN,
+    "%#{search_name}%"}
+  scope :search_user, -> (search_name){where QUERY_SEARCH_USER,
+    "%#{search_name}%"}
+  scope :search_all, -> (search_name){where QUERY_SEARCH_ALL,
+    "%#{search_name}%"}
 
   class << self
     def digest string

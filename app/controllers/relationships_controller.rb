@@ -4,7 +4,7 @@ class RelationshipsController < ApplicationController
   def index
     @user = User.find params[:user_id]
     if Settings.relationships.include? params[:relationship]
-      @title = params[:relationship]
+      @title = params[:relationship].humanize
       @users = @user.send(params[:relationship]).paginate page: params[:page]
     else
       redirect_to request.referrer

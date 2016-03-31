@@ -70,13 +70,18 @@ en:
       updated: "Word updated!"
       deleted: "Word deleted!"
       update_error: "Update error!"
-      created: "Word created!
+      created: "Word created!"
       create_error: "Create error"
   base_title: "E-learning"
   models:
     word:
       many_answer: "This word have more than one correct answer!"
   views:
+    search:
+      admin: "Admin"
+      user: "User"
+      submit: "Search"
+    search_users: "Search users"
     no_activity: "No activity"
     no_user: "No user"
     layouts:
