@@ -3,11 +3,8 @@
 <div class="row">
   <aside class="col-md-3">
     <section class="user_info">
-      <% if @user.avatar.blank? %>
-        <%= link_to image_tag(Settings.avatar.default, id: "image"), @user %>
-      <% else %>
-        <%= link_to image_tag(@user.avatar_url(:thumb)), @user %>
-      <% end %>
+      <%= link_to avatar_for(@user,
+        Settings.avatar.height, Settings.avatar.width), @user %>
     </section>
     <section class="name">
       <p><%= link_to @user.name, @user %></p>
@@ -19,14 +16,18 @@
     </section>
   </aside>
   <div class="col-md-9">
-    <div class="col-md-6 col-md-offset-4">
-      <p>
-        <%= link_to t("word.word_all"), words_path,
-          class: "btn btn-success btn-lg" %>
-        <%= link_to t("categories.lessons"), categories_path,
-          class: "btn btn-warning btn-lg" %>
-      </p>
-    </div>
+    <% if current_user?(@user) %>
+      <div class="col-md-6 col-md-offset-4">
+        <p>
+          <%= link_to t("word.word_all"), words_path,
+            class: "btn btn-success btn-lg" %>
+          <%= link_to t("categories.lessons"), categories_path,
+            class: "btn btn-warning btn-lg" %>
+        </p>
+      </div>
+    <% else %>
+      <%= render "follow_form" %><br/>
+    <% end %>
     <div class="row">
       <div class="col-md-12">
         <% if @activities.present? %>

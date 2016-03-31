@@ -6,4 +6,12 @@ module UsersHelper
       image_tag gravatar_url, alt: user.name, class: "gravatar"
     end
   end
+
+  def avatar_for user, height = Settings.height, width = Settings.width
+    if user.avatar.blank?
+      image_tag Settings.avatar.default, height: height, width: width
+    else
+      image_tag user.avatar_url(:thumb)
+    end
+  end
 end

@@ -1,8 +1,12 @@
-<li>
-  <%= gravatar_for @user %>
-  <%= link_to user.name, user %>
-  <% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to t("views.user.delete"), admin_user_path(user), method: :delete, 
-    data: {confirm: t("views.user.confirm")} %>
-  <% end %>
+<li class="list-group-item">
+  <h4>
+    <%= link_to avatar_for(user, Settings.avatar.height,
+      Settings.avatar.width), user %>
+    <%= link_to user.name, user %>
+    <% unless current_user?user %>
+      | <%= link_to t("admin.edit"), edit_admin_user_path(user) %>
+      | <%= link_to t("admin.delete"), admin_user_path(user),
+        method: :delete, data: {confirm: t("views.user.confirm")} %>
+    <% end %>
+  </h4>
 </li>

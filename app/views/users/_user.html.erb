@@ -1,11 +1,7 @@
 <li class="list-group-item">
   <h4>
-    <% if user.avatar.blank? %>
-      <%= link_to image_tag(Settings.avatar.default,
-        height: Settings.avatar.height, width: Settings.avatar.width), user %>
-    <% else %>
-      <%= link_to image_tag(user.avatar_url(:thumb)), user %>
-    <% end %>
+    <%= link_to avatar_for(user, Settings.avatar.height,
+      Settings.avatar.width), user %>
     <%= link_to user.name, user %>
   </h4>
 </li>
