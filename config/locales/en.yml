@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  home: "Home"
   user:
     number_word: "Learned %{word_count} words"
     account: "Account"
@@ -91,6 +92,7 @@ en:
       logo: "E-learning"
       words: "Words"
       category: "Category"
+      categories: "Categories"
       all_users: "Users"
     static_pages:
       welcome: "Welcome to Framgia E-learning system"

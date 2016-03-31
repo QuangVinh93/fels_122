@@ -1,12 +1,9 @@
 <li class="list-group-item">
   <h4>
-    <% if @user.avatar.blank? %>
-      <%= image_tag Settings.avatar.default, size: Settings.avatar.size_img_tag %>
-    <% else %>
-      <%= image_tag @user.avatar, size: Settings.avatar.size_img_tag %>
-    <% end %>
+    <%= link_to avatar_for(@user, Settings.avatar.size_img_tag,
+      Settings.avatar.size_img_tag), @user %>
     <span class="text-info"><%= @user.name %></span>
-    <% if activity.lesson.present? && activity.lesson.category.present?%>
+    <% if activity.lesson.present? && activity.lesson.category.present? %>
       <%= activity.action + " #{Settings.QUESTION_PER_LESSON} words
         - #{activity.lesson.category.name}" %>
         ( <%= activity.created_at.to_date %> )

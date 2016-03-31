@@ -1,20 +1,46 @@
 <% provide :title, @title %>
+
 <div class="row">
   <aside class="col-md-4">
+    <section class="user_info">
+      <%= link_to avatar_for(@user, Settings.avatar.height, Settings.avatar.width), @user %>
+    </section>
     <section class="name">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= link_to @user.name, @user %>
-      </h1>
+      <p><%= link_to @user.name, @user %></p>
+    </section>
+    <section class="stats">
+      <%= render "shared/stats" %>
+      <% if @users.any? %>
+        <div class="user_avatars">
+          <% @users.each do |user| %>
+            <%= link_to avatar_for(user,
+              Settings.avatar.mini_size, Settings.avatar.mini_size), user %>
+          <% end %>
+        </div>
+      <% end %>
     </section>
   </aside>
   <div class="col-md-8">
-    <h3><%= @title %></h3>
-    <% if @users.any? %>
-      <ul class="users follow">
-        <%= render @users %>
+    <li class="list-group-item active"><%= @title %></li>
+    <% if @users.present? %>
+      <ul class="list-group">
+        <% if @users.any? %>
+          <%= render @users %>
+        <% else %>
+          <li class="list-group-item">
+            <h4>
+              <span class="text-info"><%= t "views.no_user" %></span>
+            </h4>
+          </li>
+        <% end %>
       </ul>
-      <%= will_paginate @users%>
+      <%= will_paginate @users %>
+    <% else %>
+      <li class="list-group-item">
+        <h4>
+          <span class="text-info"><%= t "views.no_user" %></span>
+        </h4>
+      </li>
     <% end %>
   </div>
 </div>

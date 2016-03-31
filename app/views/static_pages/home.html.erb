@@ -4,13 +4,8 @@
   <div class="row">
     <aside class="col-md-3">
       <section class="user_info">
-        <% if current_user.avatar.blank? %>
-          <%= link_to image_tag(Settings.avatar.default, id: "image"),
-            current_user %>
-        <% else %>
-          <%= link_to image_tag(current_user.avatar_url(:thumb)), current_user
-            %>
-        <% end %>
+        <%= link_to avatar_for(current_user, Settings.avatar.height,
+          Settings.avatar.width), current_user %>
       </section>
       <section class="name">
         <p><%= link_to current_user.name, current_user %></p>
@@ -50,13 +45,12 @@
     </div>
   </div>
 <% else %>
-  <div class="container-fluid text-center">
-    <div class="row content">
-      <div class="col-sm-2"></div>
-      <div class="col-sm-10 text-left">
-        <h1><%= t "views.static_pages.welcome" %></h1>
-        <hr>
-      </div>
+  <div class="row content">
+    <div class="col-sm-12 text-center">
+      <h1><%= t "views.static_pages.welcome" %></h1>
+      <hr>
+      <%= link_to t("views.signup.signup_now"), new_user_path,
+        class: "btn btn-lg btn-primary" %>
     </div>
   </div>
 <% end %>
