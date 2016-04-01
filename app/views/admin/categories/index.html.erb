@@ -1,14 +1,19 @@
 <%= provide :title, t("views.layouts.categories") %>
 
-<div class="col-md-8 col-md-offset-2">
-  <h4>
-    <%= link_to t("admin.category.new"), new_admin_category_path,
-      class: "btn btn-default" %>
-  </h4>
-</div>
+<h4>
+  <%= link_to t("admin.category.new"), new_admin_category_path,
+    class: "btn btn-default" %>
+</h4>
 
-<% @categories.each do |category| %>
-  <div class="col-md-8 col-md-offset-2">
-    <h4><%= link_to category.name, admin_category_path(category) %></h4>
+<div class="row">
+  <div class="col-md-12">
+    <li class="list-group-item default"><%= t "views.all_categories" %></li>
+    <ul class="list-group">
+      <% @categories.each do |category| %>
+        <li class="list-group-item ">
+          <%= link_to category.name, admin_category_path(category) %>
+        </li>
+      <% end %>
+    </ul>
   </div>
-<% end %>
+</div>

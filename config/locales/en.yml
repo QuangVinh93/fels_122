@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  error: "Error"
   home: "Home"
   user:
     number_word: "Learned %{word_count} words"
@@ -131,7 +132,7 @@ en:
     categories:
       title: "Categories"
       start: "Start"
-
+    all_categories: "All categories"
     all_users: "All users"
     follow:
       follow: "Follow"
