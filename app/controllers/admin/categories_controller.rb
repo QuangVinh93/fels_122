@@ -36,7 +36,7 @@ class Admin::CategoriesController <ApplicationController
   end
 
   def destroy
-    if @category.destroy?
+    if @category.destroy
       flash[:success] = t "admin.flash.deleted_success"
     else
       flash[:danger] = t "admin.flash.deleted_fail"
