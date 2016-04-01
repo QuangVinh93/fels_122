@@ -33,7 +33,7 @@ class Admin::WordsController < ApplicationController
       redirect_to admin_words_path
     else
       flash[:danger] = t "admin.words.update_error"
-      redirect_to edit_admin_word_path(@word)
+      redirect_to edit_admin_word_path @word
     end
   end
 
