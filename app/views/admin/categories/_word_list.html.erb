@@ -1,8 +1,9 @@
 <div class="col-md-12 panel panel-default">
   <h3><%= t "admin.category.word_list" %></h3>
   <ul class="list-unstyled">
-    <% if @category.words.present? %>
-      <% @category.words.each do |word| %>
+    <% if @words.present? %>
+      <%= will_paginate @words %>
+      <% @words.each do |word| %>
         <div class="col-md-6">
           <li><%= word.content %></li>
         </div>
@@ -16,5 +17,6 @@
         </div>
       <% end %>
     <% end %>
+    <%= will_paginate @words %>
   </ul>
 </div>

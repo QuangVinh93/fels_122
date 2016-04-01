@@ -28,6 +28,7 @@ class Admin::CategoriesController <ApplicationController
   def show
     @word = params[:word_id].nil? ? Word.new : Word.
       find_by(id: params[:word_id])
+    @words = @category.words.paginate page: params[:page]
   end
 
   def update

@@ -20,10 +20,10 @@ User.create! name: "ToanLH2",
   name = Faker::Name.name
   email = "FELS#{n+1}@gmail.com"
   password = "1"
-  User.create!(name: name,
+  User.create! name: name,
     email: email,
     password: password,
-    password_confirmation: password)
+    password_confirmation: password
 end
 
 users = User.all
@@ -33,8 +33,25 @@ followers = users[2..18]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
 
-Lesson.create! user_id: 1, category_id: 1, result: "18/30"
+Category.create! name: "Basic 500", description: "None"
+Category.create! name: "Advance 500", description: "None"
 
-3.times do |n|
-  LessonWord.create! lesson_id: 1, word_id: n+1, word_answer_id: n+1
+100.times do |n|
+  Word.create! content: Faker::Lorem.word,
+    category_id: 1,
+    word_answers_attributes: [
+      {content: Faker::Lorem.word, correct:true},
+      {content: Faker::Lorem.word, correct:false},
+      {content: Faker::Lorem.word, correct:false}
+    ]
+end
+
+100.times do |n|
+  Word.create! content: Faker::Lorem.word,
+    category_id: 2,
+    word_answers_attributes: [
+      {content: Faker::Lorem.word, correct:true},
+      {content: Faker::Lorem.word, correct:false},
+      {content: Faker::Lorem.word, correct:false}
+    ]
 end
