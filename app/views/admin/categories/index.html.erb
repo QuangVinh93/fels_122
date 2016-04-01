@@ -1,28 +1,14 @@
 <%= provide :title, t("views.layouts.categories") %>
 
-<div class="col-md-4">
-  <%= link_to t("admin.category.new"), new_admin_category_path,
-    class: "btn btn-primary" %>
+<div class="col-md-8 col-md-offset-2">
+  <h4>
+    <%= link_to t("admin.category.new"), new_admin_category_path,
+      class: "btn btn-default" %>
+  </h4>
 </div>
 
-<div class="col-md-12">
-  <% @categories.each do |category| %>
-    <div class="col-md-6 category">
-      <ul class="no-decoration">
-        <li>
-          <h3>
-            <strong><%= category.name %></strong>
-            <%= link_to t("admin.edit"), edit_admin_category_path(category) %>
-            <%= link_to t("admin.delete"), admin_category_path(category),
-              method: :delete, data: {confirm: t("admin.category_delete")} %>
-          </h3>
-        </li>
-        <li>
-          <div class="col-md-12 textbox text-justify">
-            <%= category.description %>
-          </div>
-        </li>
-      </ul>
-    </div>
-  <% end %>
-</div>
+<% @categories.each do |category| %>
+  <div class="col-md-8 col-md-offset-2">
+    <h4><%= link_to category.name, admin_category_path(category) %></h4>
+  </div>
+<% end %>

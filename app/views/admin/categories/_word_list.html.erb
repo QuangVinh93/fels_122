@@ -1,0 +1,20 @@
+<div class="col-md-12 panel panel-default">
+  <h3><%= t "admin.category.word_list" %></h3>
+  <ul class="list-unstyled">
+    <% if @category.words.present? %>
+      <% @category.words.each do |word| %>
+        <div class="col-md-6">
+          <li><%= word.content %></li>
+        </div>
+        <div class="col-md-6">
+          <p>
+            <%= link_to t("admin.words.edit"),
+              admin_category_path(@category, word_id: word.id) %>
+            <%= link_to t("admin.words.delete"), admin_word_path(word),
+              method: :delete, data: {confirm: t("admin.words.confirm")} %>
+          </p>
+        </div>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

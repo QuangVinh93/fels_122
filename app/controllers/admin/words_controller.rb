@@ -1,46 +1,32 @@
 class Admin::WordsController < ApplicationController
   before_action :logged_in_user
   before_action :verify_admin
-  before_action :load_words, only: [:destroy, :edit, :update]
-  before_action :load_categories, only: [:edit, :new]
-
-  def new
-    @word = Word.new
-  end
+  before_action :load_words, only: [:destroy, :update]
 
   def create
     word = Word.new word_params
     if word.save
       flash[:success] = t "admin.words.created"
-      redirect_to admin_words_path
     else
       flash[:danger] = t "admin.words.create_error"
-      redirect_to new_admin_word_path
     end
-  end
-
-  def index
-    @words = Word.all
-  end
-
-  def edit
+    redirect_to :back
   end
 
   def update
     if validate_before_update?
       @word.update_attributes word_params
       flash[:success] = t "admin.words.updated"
-      redirect_to admin_words_path
     else
       flash[:danger] = t "admin.words.update_error"
-      redirect_to edit_admin_word_path @word
     end
+    redirect_to :back
   end
 
   def destroy
     @word.destroy
     flash[:danger] = t "admin.words.deleted"
-    redirect_to admin_words_path
+    redirect_to :back
   end
 
   private
@@ -51,10 +37,6 @@ class Admin::WordsController < ApplicationController
 
   def load_words
     @word = Word.find_by id: params[:id]
-  end
-
-  def load_categories
-    @categories = Category.all
   end
 
   def validate_before_update?

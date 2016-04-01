@@ -1,0 +1,16 @@
+<div class="col-md-12">
+  <div class="col-md-6">
+    <div class="col-md-12 panel panel-default">
+      <h3><%= @category.name %></h3>
+      <p>
+        <%= link_to t("admin.edit"), edit_admin_category_path(@category) %>
+        <%= link_to t("admin.delete"), admin_category_path(@category),
+          method: :delete, data: {confirm: t("admin.category_delete")} %>
+      </p>
+      <p><%= t("admin.categories.description") + ": " +
+        @category.description %></p>
+    </div>
+    <%= render "word_list" %>
+  </div>
+  <%= render "word" %>
+</div>

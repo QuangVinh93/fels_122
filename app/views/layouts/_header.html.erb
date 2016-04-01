@@ -14,7 +14,6 @@
         <li><%= link_to t("views.layouts.home"), root_path %></li>
         <% if logged_in? %>
           <% if current_user.admin? %>
-            <li><%= link_to t("views.layouts.words"), admin_words_path %></li>
             <li><%= link_to t("views.layouts.categories"),
               admin_categories_path %></li>
           <% else %>
