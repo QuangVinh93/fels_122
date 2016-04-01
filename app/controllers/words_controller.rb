@@ -1,12 +1,9 @@
 class WordsController < ApplicationController
+  before_action :logged_in_user
+
   def index
     @categories = Category.all
-    condition = if params[:condition].nil?
-      "all"
-    else
-      params[:condition]
-    end
-
+    condition = params[:condition].nil? ? "all" : params[:condition]
     @words = Word.send("by_#{condition}", current_user.id, category_ids).
       paginate page: params[:page]
   end

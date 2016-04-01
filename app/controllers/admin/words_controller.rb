@@ -12,9 +12,11 @@ class Admin::WordsController < ApplicationController
     word = Word.new word_params
     if word.save
       flash[:success] = t "admin.words.created"
+      redirect_to admin_words_path
     else
-      flash[:success] = t "admin.words.create_error"
-    redirect_to admin_words_path
+      flash[:danger] = t "admin.words.create_error"
+      redirect_to new_admin_word_path
+    end
   end
 
   def index
@@ -30,14 +32,14 @@ class Admin::WordsController < ApplicationController
       flash[:success] = t "admin.words.updated"
       redirect_to admin_words_path
     else
-      flash[:warning] = t "admin.words.update_error"
+      flash[:danger] = t "admin.words.update_error"
       redirect_to edit_admin_word_path(@word)
     end
   end
 
   def destroy
     @word.destroy
-    flash[:warning] = t "admin.words.deleted"
+    flash[:danger] = t "admin.words.deleted"
     redirect_to admin_words_path
   end
 
