@@ -50,7 +50,7 @@ class Admin::WordsController < ApplicationController
   end
 
   def load_words
-    @word = Word.find_by params[:id]
+    @word = Word.find_by id: params[:id]
   end
 
   def load_categories
