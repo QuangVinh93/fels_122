@@ -46,8 +46,10 @@
   </div>
 <% else %>
   <div class="row content">
-    <div class="col-sm-12 text-center">
-      <h1><%= t "views.static_pages.welcome" %></h1>
+    <div class="col-md-10 col-md-offset-1 text-center">
+      <div class="jumbotron">
+        <h2><%= t "views.static_pages.welcome" %></h2>
+      </div>
       <hr>
       <%= link_to t("views.signup.signup_now"), new_user_path,
         class: "btn btn-lg btn-primary" %>

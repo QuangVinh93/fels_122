@@ -1,7 +1,7 @@
 class Admin::CategoriesController <ApplicationController
   before_action :logged_in_user
   before_action :verify_admin
-  before_action :find_category, only: [:edit, :update, :destroy]
+  before_action :load_category, except: [:new, :create]
 
   def index
     @categories = Category.all.paginate page: params[:page]
@@ -23,6 +23,11 @@ class Admin::CategoriesController <ApplicationController
   end
 
   def edit
+  end
+
+  def show
+    @word = params[:word_id].nil? ? Word.new : Word.
+      find_by(id: params[:word_id])
   end
 
   def update
@@ -49,7 +54,7 @@ class Admin::CategoriesController <ApplicationController
     params.require(:category).permit :name, :description
   end
 
-  def find_category
-    @category = Category.find params[:id]
+  def load_category
+    @category = Category.find_by id: params[:id]
   end
 end
