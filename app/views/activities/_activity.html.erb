@@ -2,7 +2,7 @@
   <h4>
     <%= link_to avatar_for(@user, Settings.avatar.size_img_tag,
       Settings.avatar.size_img_tag), @user %>
-    <span class="text-info"><%= @user.name %></span>
+    <span class="text-info"><%= link_to @user.name, @user %></span>
     <% if activity.lesson.present? && activity.lesson.category.present? %>
       <%= activity.action + " #{Settings.QUESTION_PER_LESSON} words
         - #{activity.lesson.category.name}" %>

@@ -19,6 +19,9 @@ class Admin::UsersController < ApplicationController
     if condition
       @users = User.send("search_#{condition}", name).paginate page: params[:page],
         per_page: Settings.users.per_page
+    else
+      @users = User.all.paginate page: params[:page],
+        per_page: Settings.users.per_page
     end
   end
 
