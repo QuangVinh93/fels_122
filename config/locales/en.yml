@@ -105,6 +105,7 @@ en:
       unlearned: "Unlearned"
       all: "All"
       filter: "Filter"
+      count: "Count: "
     signup:
       signup: "Signup"
       signup_now: "Sign up now!"
