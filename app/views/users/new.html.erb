@@ -2,10 +2,9 @@
 
 <div class = "row">
   <div class= "col-md-6 col-md-offset-3 panel panel-default">
-    <div class="col-md-12 text-center">
-      <h1><%= t "views.signup.signup" %></h1><br>
-    </div>
+    <h1><%= t "views.signup.signup" %></h1><br>
     <%= form_for @user do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
       <p>
         <%= f.label :avatar %>
         <div class="photo-preview">
