@@ -8,6 +8,8 @@ class Lesson < ActiveRecord::Base
 
   has_many :lesson_words
   has_many :activities
+  has_many :words, through: :lesson_words
+  has_many :word_answers, through: :lesson_words
 
   accepts_nested_attributes_for :lesson_words
 

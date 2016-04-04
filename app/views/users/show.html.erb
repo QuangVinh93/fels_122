@@ -8,8 +8,10 @@
     </section>
     <section class="name">
       <p><%= link_to @user.name, @user %></p>
-      <p><%= link_to t("user.number_word", word_count: @count),
-        words_path(condition: t("word.learned")) %></p>
+      <% if current_user? @user %>
+        <p><%= link_to t("user.number_word", word_count: @count),
+          words_path(condition: t("word.learned")) %></p>
+      <% end %>
     </section>
     <section class="stats">
       <%= render "shared/stats" %>

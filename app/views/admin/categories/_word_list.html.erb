@@ -1,5 +1,6 @@
 <div class="col-md-12 panel panel-default">
   <h3><%= t "admin.category.word_list" %></h3>
+  <p><%= "#{@words.count} #{t "admin.words.words"}" %></p>
   <ul class="list-unstyled">
     <% if @words.present? %>
       <%= will_paginate @words %>

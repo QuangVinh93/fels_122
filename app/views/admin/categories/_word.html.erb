@@ -7,12 +7,12 @@
     <%= render "shared/error_messages", object: f.object %>
     <p><%= f.label :content, t("admin.words.content") %></p>
     <p><%= f.text_field :content, class: "form-control" %></p>
-    <p><%= link_to_add_fields t("admin.words.add_answer"),
-      f, :word_answers %></p>
     <%= f.hidden_field :category_id, value: @category.id %>
     <%= f.fields_for :word_answers do |builder| %>
       <%= render "word_answer_fields", f: builder %>
     <% end %>
+    <p><%= link_to_add_fields t("admin.words.add_answer"),
+      f, :word_answers %></p>
     <%= f.submit t("admin.words.submit"), class: "btn btn-default
       col-md-4 col-md-offset-4" %>
   <% end %>
