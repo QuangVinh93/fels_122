@@ -4,6 +4,7 @@
       admin_category_path(@category, word_id: nil) %>
   </h3>
   <%= form_for [:admin, @word] do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
     <p><%= f.label :content, t("admin.words.content") %></p>
     <p><%= f.text_field :content, class: "form-control" %></p>
     <p><%= link_to_add_fields t("admin.words.add_answer"),

@@ -5,5 +5,7 @@ class WordAnswer < ActiveRecord::Base
 
   has_many :lesson_words
 
+  validates :content, presence: true
+
   scope :by_list_id, ->list_id{where QUERY_ANSWER_LIST_ID, list_id}
 end
