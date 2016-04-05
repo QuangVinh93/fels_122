@@ -34,11 +34,17 @@
   </div>
   <%= "#{t "views.words.count"} #{@words.count}" %>
   <div class="col-md-4 col-md-offset-1 text-left">
+    <div class="panel">
+      <h4><%= t "views.words.word_title" %></h4>
+    </div>
     <% @words.each do |word| %>
       <p><%= word.content %></p>
     <% end %>
   </div>
-  <div class="col-md-7 text-left">
+  <div class="col-md-4 text-left">
+    <div class="panel">
+      <h4><%= t "views.words.word_answer_title" %></h4>
+    </div>
     <% @words.each do |word| %>
       <p><%= correct_answer word %></p>
     <% end %>
