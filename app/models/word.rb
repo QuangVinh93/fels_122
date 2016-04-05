@@ -12,6 +12,7 @@ class Word < ActiveRecord::Base
 
   has_many :lesson_words
   has_many :word_answers, dependent: :destroy
+  has_many :lessons, through: :lesson_words
 
   accepts_nested_attributes_for :word_answers,
     reject_if: proc {|attributes| attributes[:content].blank?},

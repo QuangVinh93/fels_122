@@ -75,6 +75,7 @@ en:
       update_error: "Update error!"
       created: "Word created!"
       create_error: "Create error"
+      words: " words"
   base_title: "E-learning"
   models:
     word:
@@ -151,3 +152,4 @@ en:
       true_answer: "[o]"
       wrong_answer: "[x]"
       submit: "Submit"
+      correct: "answer(s) correct"

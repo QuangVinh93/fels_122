@@ -15,7 +15,7 @@ class LessonsController < ApplicationController
   def update
     params[:lesson][:result] = true
     @lesson.update_attributes lesson_params
-    redirect_to @lesson
+    redirect_to :back
   end
 
   def show
@@ -23,11 +23,10 @@ class LessonsController < ApplicationController
       @words = @lesson.category.words.shuffle.
         take question_quantity(@lesson.category)
     else
-      word_answer = WordAnswer.all
-      @result = WordAnswer.send(:by_list_id, @lesson.lesson_words.
-        map(&:word_answer_id)).map(&:correct).count true
-      @quantity = question_quantity @lesson.category
+      @words = @lesson.words
+      @correct_answers = WordAnswer.send :correct_answers, @lesson.id
     end
+
   end
 
   private

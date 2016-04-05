@@ -2,21 +2,36 @@
   <strong><%= t "views.lessons.questions" %></strong>
   <hr>
 </h2>
+
+<% if @lesson.result.present? %>
+  <h4>
+    <%= "#{@correct_answers.count} #{t "views.lessons.correct"}" %>
+  </h4>
+<% end %>
+
 <%= form_for @lesson do |f| %>
-  <%= f.fields_for :lesson_words do |lesson_word| %>
+  <%= f.fields_for :lesson_words do |builder| %>
     <ul class="list-unstyled">
       <li>
-        <%= lesson_word.label :question,
-          @words.at(lesson_word.index).content %>
+        <%= "#{builder.index + 1}." %>
+        <%= @words.at(builder.index).content %>
       </li>
-      <% @words.at(lesson_word.index).word_answers.each do |answer| %>
-        <li>
-          <%= lesson_word.radio_button :word_answer_id, answer.id %>
-          <%= answer.content %>
-          <%= lesson_word.hidden_field :word_id, value: answer.word_id %>
-        </li>
-      <% end %>
+      <ul class="list-unstyled">
+        <% @words.at(builder.index).word_answers.each do |word_answer| %>
+          <% if @lesson.result.nil? %>
+            <li>
+              <%= builder.radio_button :word_answer_id, word_answer.id %>
+              <%= word_answer.content %>
+              <%= builder.hidden_field :word_id, value: word_answer.word.id %>
+            </li>
+          <% else %>
+              <%= render "result", f: builder, word_answer: word_answer %>
+          <% end %>
+        <% end %>
+      </ul>
     </ul>
   <% end %>
-  <%= f.submit t("views.lessons.submit"), class: "btn btn-default" %>
+  <% if @lesson.result.nil? %>
+    <%= f.submit t("views.lessons.submit"), class: "btn btn-default" %>
+  <% end %>
 <% end %>

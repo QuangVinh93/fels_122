@@ -26,8 +26,14 @@ class Admin::CategoriesController <ApplicationController
   end
 
   def show
-    @word = params[:word_id].nil? ? Word.new : Word.
-      find_by(id: params[:word_id])
+    if params[:word_id].nil?
+      @word = Word.new
+      4.times{
+        @word.word_answers.build
+      }
+    else
+      @word = Word.find_by id: params[:word_id]
+    end
     @words = @category.words.paginate page: params[:page]
   end
 
