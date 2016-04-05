@@ -13,8 +13,14 @@ class LessonsController < ApplicationController
   end
 
   def update
-    params[:lesson][:result] = true
-    @lesson.update_attributes lesson_params
+    begin
+      Lesson.transaction do
+        params[:lesson][:result] = true
+        @lesson.update_attributes lesson_params
+      end
+    rescue Exception => e
+      ActiveRecord::Rollback
+    end
     redirect_to :back
   end
 
