@@ -7,19 +7,19 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.create! name: "ToanLH",
   email: "toan@gmail.com",
-  password: "1",
-  password_confirmation: "1",
+  password: "123456",
+  password_confirmation: "123456",
   admin: true
 User.create! name: "ToanLH2",
   email: "toan2@gmail.com",
-  password: "1",
-  password_confirmation: "1",
+  password: "123456",
+  password_confirmation: "123456",
   admin: false
 
 20.times do |n|
   name = Faker::Name.name
   email = "FELS#{n+1}@gmail.com"
-  password = "1"
+  password = "123456"
   User.create! name: name,
     email: email,
     password: password,
