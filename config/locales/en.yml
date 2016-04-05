@@ -107,6 +107,8 @@ en:
       all: "All"
       filter: "Filter"
       count: "Count: "
+      word_title: "Words"
+      word_answer_title: "Answers"
     signup:
       signup: "Signup"
       signup_now: "Sign up now!"

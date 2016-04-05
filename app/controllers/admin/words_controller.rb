@@ -14,8 +14,7 @@ class Admin::WordsController < ApplicationController
   end
 
   def update
-    if validate_before_update?
-      @word.update_attributes word_params
+    if validate_before_update? && @word.update_attributes(word_params)
       flash[:success] = t "admin.words.updated"
     else
       flash[:danger] = t "admin.words.update_error"
