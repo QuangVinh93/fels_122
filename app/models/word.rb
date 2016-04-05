@@ -1,10 +1,12 @@
 class Word < ActiveRecord::Base
   QUERY_WORD_LEARNED = "id in (select lesson_words.word_id from lessons join
     lesson_words on lessons.id = lesson_words.lesson_id where
-    lessons.user_id = ? and lessons.category_id in (?))"
+    lessons.user_id = ? and lessons.category_id in (?)
+    and lesson_words.word_id is not null)"
   QUERY_WORD_UNLEARNED = "id not in (select lesson_words.word_id from lessons
     join lesson_words on lessons.id = lesson_words.lesson_id
-    where lessons.user_id = ?) and words.category_id in (?)"
+    where lessons.user_id = ? and lesson_words.word_id is not null)
+    and category_id in (?)"
   QUERY_WORD_ALL = "id in (select id from words
     where words.category_id in (?))"
 
